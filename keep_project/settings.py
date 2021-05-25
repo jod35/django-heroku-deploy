@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-slncrk5#+w6*!$dgpne6v8*s(qvi&b1(_&2uyn5=%!pq0fan4+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'keep_project.urls'
@@ -132,3 +133,5 @@ CRISPY_TEMPLATE_PACK='bootstrap4'
 
 LOGIN_URL='/login'
 LOGIN_REDIRECT_URL='/home'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
